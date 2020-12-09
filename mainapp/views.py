@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from mainapp.models import Main
 from mainapp.forms import PostForm
 
+# home
 class IndexView(ListView):
   template_name = 'core/index.html'
   context_object_name = 'post_list'
@@ -13,6 +14,7 @@ class SinglePost(DetailView):
   model = Main
   context_object_name = 'post'
 
+# Admin area
 class PostView(ListView):
   template_name = 'core/posts.html'
   context_object_name = 'post_list'
