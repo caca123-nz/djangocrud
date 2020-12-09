@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %} {% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand d-flex align-items-center" href="#"
+    >Post Administration</a
+  >
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'mainapp:add' %}">Add New</a>
+    </li>
+  </ul>
+</nav>
+<section class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      {% for album in post_list %}
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img
+            src="https://via.placeholder.com/150x100"
+            alt="image"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <h4 class="">{{ album.title }}</h4>
+            <p class="card-text"></p>
+            <div
+              class="d-md-flex justify-content-between align-items-center d-sm-block"
+            >
+              <div class="btn-group">
+                <a
+                  href="{{ album.get_absolute_url }}"
+                  class="btn btn-sm btn-outline-primary"
+                  >View</a
+                >
+                <a
+                  href="{% url 'mainapp:edit' pk=album.id %}"
+                  class="btn btn-sm btn-outline-secondary"
+                  >Edit</a
+                >
+                <a
+                  href="{% url 'mainapp:delete' pk=album.id %}"
+                  class="btn btn-sm btn-outline-danger"
+                  >Delete</a
+                >
+              </div>
+              <div class="">
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

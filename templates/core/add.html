@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %} {% block content %}
+<section class="create-post p-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form method="POST">
+          {% csrf_token %} {{form.as_p}}
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a class="btn btn-default" href="{% url 'mainapp:posts' %}"
+              >Cancel</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

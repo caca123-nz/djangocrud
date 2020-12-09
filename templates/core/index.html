@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %} {% block content %}
+<section class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      {% for album in post_list %}
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img
+            src="https://via.placeholder.com/150x100"
+            alt="image"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <h4 class="">
+              <a href="{{ album.get_absolute_url }}">{{ album.title }}</a>
+            </h4>
+            <p class="card-text"></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="">
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
